@@ -1,5 +1,5 @@
 - name: Configure Backend server
-  hosts: Backend
+  hosts: backend
   become: yes
   tasks:
    - name: Disable node js
