@@ -5,6 +5,7 @@
    mysql_root_password: ExpenseApp@1
    login_host: mysql.daws81.fun
   tasks:
+   
    - name: Disable node js
      ansible.builtin.command: dnf module disable nodejs -y
 
@@ -13,8 +14,11 @@
 
    - name: Install node js
      ansible.builtin.package:
-      name: nodejs
+      name: "{{ item  }}"
       state: present
+     loop: 
+      - nodejs
+      - mysql
    - name: Create Expense user 
      ansible.builtin.user:
       name: expense  
